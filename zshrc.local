@@ -1,0 +1,22 @@
+alias ys='yaourt -Ss'
+alias yS='yaourt -S'
+alias yU='yaourt -Syu --aur'
+alias yR='yaourt -Rs'
+alias ll='ls -lah --color'
+
+alias view='vim -R'
+
+alias -g G='| grep'
+alias -g L='| less'
+
+export PATH=~/bin:$PATH
+
+alias gitK='gitk --remotes --branches --tags HEAD &'
+
+unsetopt share_history
+unsetopt SHARE_HISTORY
+setopt inc_append_history
+setopt INC_APPEND_HISTORY
+
+#export MAKEFLAGS="-j9"
+#alias fr='cd ~/workspace/frosty-ng'
