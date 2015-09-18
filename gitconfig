@@ -6,6 +6,8 @@
 	editor = vim
 	pager = less -FXRS
 	excludesfile = ~/.gitignore
+[color]
+        ui = true
 [merge]
 	tool = fugitive
 	renamelimit = 100000
