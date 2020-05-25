@@ -48,3 +48,6 @@
 	signoff = true
 [commit]
 	verbose = 1
+
+[include]
+    path = .gitconfig.local
