@@ -1,0 +1,9 @@
+compile_commands.json
+.gdb_history
+gdb communication
+upstream/
+TODO
+*.orig
+.clangd
+.rej
+*~

@@ -1,34 +1,50 @@
 [user]
-	name = Matthias Maennich
-	email = matthias@maennich.net
-	signingkey = 52B65CBF
+    name = Matthias Maennich
+    email = matthias@maennich.net
+    signingkey = 52B65CBF
 [core]
-	editor = vim
-	pager = less -FXRS
-	excludesfile = ~/.gitignore
+    editor = vim
+    pager = less -FXRS
+    excludesfile = ~/.gitignore
 [color]
         ui = true
 [merge]
-	tool = fugitive
-	renamelimit = 100000
-	log = 50
+    tool = fugitive
+    renamelimit = 100000
+    log = 200
 [gui]
-	fontui = -family \"Bitstream Vera Sans\" -size 8 -weight normal -slant roman -underline 0 -overstrike 0
-	fontdiff = -family \"Bitstream Vera Sans Mono\" -size 9 -weight normal -slant roman -underline 0 -overstrike 0
-	spellingdictionary = en
+    fontui = -family \"Bitstream Vera Sans\" -size 8 -weight normal -slant roman -underline 0 -overstrike 0
+    fontdiff = -family \"Bitstream Vera Sans Mono\" -size 9 -weight normal -slant roman -underline 0 -overstrike 0
+    spellingdictionary = en
 [color]
-	ui = true
+    ui = true
 [alias]
-	co = checkout
-	graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
-	unpack-refs = "!bash -c 'IFS=$''\\n''; for f in $(git show-ref --heads); do /bin/echo ''Writing  '' $(echo $f | cut -c42-); echo $(echo $f | cut -c1-40) > \"${GIT_DIR:-.git}/$(echo $f | cut -c42-)\"; done'"
-	cs = commit -s
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	ri = rebase --interactive --autosquash
-	pushed = "!bash -c 'branch=$(git branch | grep \"*\" | cut -d\\  -f2) && git branch -m ${branch}_pushed'"
+    co = checkout
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    ri = rebase --interactive --autosquash --autostash
+    rv = revise -i --autosquash
+    rw = revise -ie
+    amend = commit --amend -CHEAD
+    one = show -s --pretty='format:%h (\"%s\")'
+    fixes = show -s --pretty='format:Fixes: %h (\"%s\")'
+    ca = commit --amend
+    rc = rebase --continue
 [push]
-	default = simple
+    default = simple
 [help]
-	autocorrect = 1
+    autocorrect = 1
 [mergetool "fugitive"]
-	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+    cmd = vim -f -c \"Gdiffsplit!\" \"$MERGED\"
+[url "ssh://git@github.com/"]
+	insteadOf = git://github.com/
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+[pretty]
+    fixes = Fixes: %h (\"%s\")
+[icdiff]
+	options = --highlight --line-numbers
+[format]
+	coverLetter = auto
+	signoff = true
+[commit]
+	verbose = 1
