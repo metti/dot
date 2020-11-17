@@ -1,17 +1,18 @@
 [user]
     name = Matthias Maennich
     email = matthias@maennich.net
-    signingkey = 52B65CBF
 [core]
     editor = vim
     pager = less -FXRS
     excludesfile = ~/.gitignore
+    abbrev = 12
 [color]
         ui = true
 [merge]
     tool = fugitive
     renamelimit = 100000
     log = 200
+    conflictstyle = diff3
 [gui]
     fontui = -family \"Bitstream Vera Sans\" -size 8 -weight normal -slant roman -underline 0 -overstrike 0
     fontdiff = -family \"Bitstream Vera Sans Mono\" -size 9 -weight normal -slant roman -underline 0 -overstrike 0
@@ -19,7 +20,6 @@
 [color]
     ui = true
 [alias]
-    co = checkout
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     ri = rebase --interactive --autosquash --autostash
     rv = revise -i --autosquash
@@ -34,7 +34,7 @@
 [help]
     autocorrect = 1
 [mergetool "fugitive"]
-    cmd = vim -f -c \"Gdiffsplit!\" \"$MERGED\"
+    cmd = vim -f -c \"Gvdiffsplit!\" \"$MERGED\"
 [url "ssh://git@github.com/"]
 	insteadOf = git://github.com/
 [url "ssh://git@github.com/"]
@@ -48,6 +48,8 @@
 	signoff = true
 [commit]
 	verbose = 1
+[diff]
+	tool = vimdiff
 
 [include]
     path = .gitconfig.local
