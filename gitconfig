@@ -36,9 +36,9 @@
 [mergetool "fugitive"]
     cmd = vim -f -c \"Gvdiffsplit!\" \"$MERGED\"
 [url "ssh://git@github.com/"]
-	insteadOf = git://github.com/
+	pushInsteadOf = git://github.com/
 [url "ssh://git@github.com/"]
-	insteadOf = https://github.com/
+	pushInsteadOf = https://github.com/
 [pretty]
     fixes = Fixes: %h (\"%s\")
 [icdiff]
