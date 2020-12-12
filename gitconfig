@@ -45,11 +45,14 @@
 	options = --highlight --line-numbers
 [format]
 	coverLetter = auto
+	coverFromDescription = auto
 	signoff = true
 [commit]
 	verbose = 1
 [diff]
 	tool = vimdiff
+[pull]
+	rebase = true
 
 [include]
     path = .gitconfig.local
