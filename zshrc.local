@@ -1,22 +1,12 @@
 export MAKEFLAGS="-j$(nproc)"
 export PATH=~/bin:$PATH
 
-alias ys='yaourt -Ss'
-alias yS='yaourt -S'
-alias yU='yaourt -Syu --aur'
-alias yR='yaourt -Rs'
-
-alias view='vim -R'
-alias -g G='| grep'
-alias -g L='| less'
-
 if ls --help 2>/dev/null | grep -- --color= >/dev/null && [[ "$TERM" != dumb ]] ; then
     #a1# long colored list, without dotfiles (@a@)
     alias ll='ls -lah --color=auto'
 else
     alias ll='ls -lah'
 fi
-alias gitK="gitk --remotes --branches --tags HEAD &"
 
 autoload -Uz compinit
 compinit
@@ -28,6 +18,4 @@ setopt INC_APPEND_HISTORY
 
 unsetopt auto_remove_slash
 setopt no_auto_remove_slash
-
-export GOPATH=~/ssd/go
 
