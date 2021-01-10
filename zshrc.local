@@ -1,4 +1,4 @@
-export MAKEFLAGS="-j$(cat /proc/cpuinfo | grep -c proc)"
+export MAKEFLAGS="-j$(nproc)"
 export PATH=~/bin:$PATH
 
 alias ys='yaourt -Ss'
