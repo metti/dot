@@ -19,3 +19,4 @@ setopt INC_APPEND_HISTORY
 unsetopt auto_remove_slash
 setopt no_auto_remove_slash
 
+set -o vi
